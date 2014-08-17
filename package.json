@@ -1,0 +1,40 @@
+{
+  "name": "dat-berlin-badegewaesser",
+  "version": "0.0.0",
+  "description": "Water Quality of Berlin Swimming Lakes",
+  "main": "index.js",
+  "scripts": {
+    "start": "gasket run",
+    "init": "dat init --prompt false",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "gasket": {
+    "import": [
+      "curl http://www.berlin.de/badegewaesser/baden-details/index.php/index/all.json?q=",
+      "json-select 'index.*' --lines",
+      "dat import --json --primary=id"
+    ],
+    "main": [
+      "gasket run import",
+      "sleep 43200",
+      null,
+      "gasket run main"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/finnp/dat-berlin-badegewaesser"
+  },
+  "author": "Finn Pauls",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/finnp/dat-berlin-badegewaesser/issues"
+  },
+  "homepage": "https://github.com/finnp/dat-berlin-badegewaesser",
+  "dependencies": {
+    "dat": "^6.1.0",
+    "gasket": "^1.2.3",
+    "json-select": "^2.2.0",
+    "request": "^2.40.0"
+  }
+}
