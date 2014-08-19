@@ -19,7 +19,7 @@ PORT=6461;npm start
 ```
 
 After that the data is available at `localhost:6461` and gets imported every 
-24 hours.
+12 hours.
 
 ## Data Source
 

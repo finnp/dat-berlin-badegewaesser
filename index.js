@@ -8,7 +8,7 @@ module.exports = function (dat, ready) {
   // update stuff is workaround for
   // https://github.com/maxogden/dat/issues/154
   function startFetch() {
-    setTimeout(startFetch, 24*60*60)
+    setTimeout(startFetch, 12*60*60*1000)
     console.log('Fetching data...')
     fetch().pipe(dat.createWriteStream({force: update}))
     update = true
