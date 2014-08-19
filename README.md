@@ -18,6 +18,9 @@ is handy for Heroku.
 PORT=6461;npm start
 ```
 
+If you don't want people to be able to push to your dat specify `DAT_ADMIN_USER`
+and `DAT_ADMIN_PASS` in your environment.
+
 After that the data is available at `localhost:6461` and gets imported every 
 12 hours.
 
