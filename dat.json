@@ -1,0 +1,9 @@
+{
+  "name": "dat-berlin-badegewaesser",
+  "description": "Water Quality of Berlins Water Bodies",
+  "publisher": "Landesamt für Gesundheit und Soziales Berlin",
+  "license": "CC-BY-SA-3.0",
+  "hooks": {
+    "listen": "./index.js"
+  }
+}

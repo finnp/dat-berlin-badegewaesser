@@ -4,27 +4,8 @@
   "description": "Water Quality of Berlin Swimming Lakes",
   "main": "index.js",
   "scripts": {
-    "start": "gasket run http://www.berlin.de/badegewaesser/baden-details/index.php/index/",
-    "init": "dat init --prompt false",
+    "start": "node index.js | dat import --json --primary=id",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "gasket": {
-    "import": [
-      "json-merge http://www.berlin.de/badegewaesser/baden-details/index.php/index/all.json?q= http://www.berlin.de/badegewaesser/baden-details/index.php/index/all.kml?q="
-    ],
-    "main": [
-      "gasket run import",
-      "sleep 43200",
-      null,
-      "gasket run main"
-    ],
-    "kml": [
-      "curl http://www.berlin.de/badegewaesser/baden-details/index.php/index/all.kml?q=",
-      "togeojson",
-      "jsonfilter ",
-      "jsonmap '{geometry: this.geometry.coordinates, rss_name: this.properties.name}'",
-      "dat import --json --primary=rss_name"
-    ]
   },
   "repository": {
     "type": "git",
@@ -40,13 +21,9 @@
     "JSONStream": "^0.9.0",
     "csv-join": "^1.0.1",
     "csv-write-stream": "^0.2.1",
-    "dat": "^6.1.3",
-    "gasket": "^1.2.3",
-    "json-merge": "^1.2.0",
-    "jsonfilter": "^1.0.2",
     "ldjson-stream": "^1.2.1",
     "request": "^2.40.0",
-    "togeojson": "^0.8.0",
+    "through2": "^0.6.1",
     "xml-json": "^2.0.2"
   },
   "devDependencies": {}
