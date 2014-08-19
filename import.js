@@ -13,7 +13,18 @@ module.exports = function () {
     request(baseUrl + 'all.json?q=')
       .pipe(JSONparse('index.*'))
       .pipe(map(function (obj, enc, next) {
-        next(null, {key: obj.id, name: obj.rss_name, quality: obj.wasserqualitaet})
+        next(null, {
+          key: obj.id,
+          version: (new Date(obj.dat)).getTime(),
+          name: obj.rss_name,
+          waterquality: obj.wasserqualitaet,
+          district: obj.bezirk,
+          cb: obj.cb, // per ml
+          ecoli: obj.eco, // per ml
+          ente: obj.ente, // Enterococcus per ml
+          sightdepth: obj.sicht, // in cm
+          bsl: obj.basl // biosafety level?
+        })
       }))
       .pipe(toCSV())
 
