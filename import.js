@@ -23,7 +23,7 @@ module.exports = function () {
           ecoli: obj.eco, // per ml
           ente: obj.ente, // Enterococcus per ml
           sightdepth: obj.sicht, // in cm
-          bsl: obj.basl // biosafety level?
+          bsl: obj.bsl // biosafety level?
         })
       }))
       .pipe(toCSV())
