@@ -4,10 +4,14 @@ module.exports = function (dat, ready) {
   ready()
   startFetch()
   
+  var update = false
+  // update stuff is workaround for
+  // https://github.com/maxogden/dat/issues/154
   function startFetch() {
-    setTimeout(startFetch, 3000)
+    setTimeout(startFetch, 24*60*60)
     console.log('Fetching data...')
-    fetch().pipe(dat.createWriteStream({primary: 'id', force: true}))
+    fetch().pipe(dat.createWriteStream({force: update}))
+    update = true
   }
 
 }

@@ -13,7 +13,7 @@ module.exports = function () {
     request(baseUrl + 'all.json?q=')
       .pipe(JSONparse('index.*'))
       .pipe(map(function (obj, enc, next) {
-        next(null, {id: obj.id, name: obj.rss_name, quality: obj.wasserqualitaet})
+        next(null, {key: obj.id, name: obj.rss_name, quality: obj.wasserqualitaet})
       }))
       .pipe(toCSV())
 

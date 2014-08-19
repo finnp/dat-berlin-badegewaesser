@@ -4,8 +4,7 @@
   "description": "Water Quality of Berlin Swimming Lakes",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js | dat import --json --primary=id",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm install dat -g && dat init && dat listen --port=$PORT"
   },
   "repository": {
     "type": "git",
