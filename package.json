@@ -4,7 +4,7 @@
   "description": "Water Quality of Berlin Swimming Lakes",
   "main": "index.js",
   "scripts": {
-    "start": "npm install dat -g && dat init && dat listen --port=$PORT"
+    "start": "dat init && dat listen --port=$PORT"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,9 @@
     "request": "^2.40.0",
     "through2": "^0.6.1",
     "xml-json": "^2.0.2"
+  },
+  "optionalDependencies": {
+    "dat": "^6.3.1"
   },
   "devDependencies": {}
 }

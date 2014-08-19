@@ -8,9 +8,16 @@ After that you need to install [dat](http://dat-data.com) with `npm install dat 
 ```bash
 git clone https://github.com/finnp/dat-berlin-badegewaesser.git
 cd dat-berlin-badegewaesser
+npm install --no-optional # do not install dat
 dat init
 dat listen
 ```
+Instead of the last commands you can also do `npm start` with a `PORT`, which
+is handy for Heroku.
+```
+PORT=6461;npm start
+```
+
 After that the data is available at `localhost:6461` and gets imported every 
 24 hours.
 
